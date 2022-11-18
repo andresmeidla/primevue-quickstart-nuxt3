@@ -1,5 +1,7 @@
 <template>
-	<div class="container">
+	<div>
+		<MenuBar :model="items"></MenuBar>
+		<div class="container">
 		<div class="flex flex-column align-items-center mt-1">
 			<img alt="Vue logo" src="./assets/primevue-logo.png" />
 			<Toast />
@@ -12,12 +14,20 @@
 			</div>
 		</div>
 	</div>
+	</div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import MenuBar from "primevue/menubar";
+import { MenuItem } from "primevue/menuitem";
 import { useToast } from "primevue/usetoast";
-
+const items: MenuItem[] = [
+{
+  label:'File',
+  icon:'pi pi-fw pi-file',
+}
+]
 const text = ref();
 const toast = useToast();
 const greet = () => {
